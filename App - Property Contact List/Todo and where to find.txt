@@ -1,0 +1,8 @@
+Find workspace at: 
+Documents⁩ > ProjectOneSpringBoot
+
+Add Login Page
+
+
+./mvnw clean package
+java -jar target/propertylist-thymeleaf-web-app-0.0.1-SNAPSHOT.jar

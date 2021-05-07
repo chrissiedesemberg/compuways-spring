@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Properties</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/de7b550e24.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+	<div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+				<div th:switch="${properties}" class="container my-5">
+					<p class="my-5">
+						<a href="/properties/showForm" class="btn btn-primary"><i
+							class="fas fa-user-plus ml-2 btn btn-primary"> Add Property</i></a> <a
+							th:href="@{/properties/list}" class="btn btn-primary">Show
+							list</a>
+					</p>
+
+
+					<div class="col-md-10">
+						<h2 th:case="null">No Properties yet!</h2>
+						<div th:case="*">
+							<table
+								class="table table-striped table-bordered table-responsive-md">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Property Name</th>
+										<th>Street Address</th>
+										<th>Suburb</th>
+										<th>City</th>
+										<th>Property Type</th>
+										<th>Owner Details</th>
+										<th>Tenant Details</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="property : ${properties}">
+										<td th:text="${property.id}"></td>
+										<td th:text="${property.name}"></td>
+										<td th:text="${property.streetAddress}"></td>
+										<td th:text="${property.suburb}"></td>
+										<td th:text="${property.city}"></td>
+										<td th:text="${property.type}"></td>
+										<td th:utext="${property.ownerName}"></td>
+										<td th:text="${property.tenantName}"></td>
+
+										<td><a
+											th:href="@{/properties/edit/{id}(id=${property.id})}"
+											class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>
+										<td><a
+											th:href="@{/properties/delete/{id}(id=${property.id})}"
+											class="btn btn-danger"><i class="fas fa-times ml-2"></i></a></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- <h1 th:if="${properties==null and properties.empty}">No
+								properties saved.</h1> -->
+
+
+						</div>
+
+					</div>
+				</div>
+				<form method="POST" th:action="@{/logout}">
+					<input type="submit" value="Logout" />
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+
+</body>
+
+</html>
