@@ -1,0 +1,19 @@
+
+<!--  HEAD TAGS -->
+<div th:fragment="myHeadTags">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}">
+</div>
+
+<!--  Footer  -->
+
+<div th:fragment="footerCard">
+<div class="card"  style="text-align: center; position: absolute; bottom: 0; width: 100%;" >
+  <div class="card-body">
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
+  </div>
+</div>
+</div>

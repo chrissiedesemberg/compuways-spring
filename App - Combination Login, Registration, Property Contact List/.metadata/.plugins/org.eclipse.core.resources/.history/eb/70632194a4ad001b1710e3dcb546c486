@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+	<div th:fragment="navigationBar">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+				Login Module</a>
+			<div class="container navbar-nav">
+				<a sec:authorize="isAuthenticated()" class="nav-item nav-link "
+					th:href="@{/logout}">Logout</a>
+			</div>
+			<div class="navbar-nav container">
+				<!--  Print user information -->
+				<a class="nav-item nav-link">Welcome, <span sec:authentication="principal.name">User</span></a>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div th:fragment="myHeadTags">
+meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Add Property</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="../static/styles.css" />
+
+
+</div>

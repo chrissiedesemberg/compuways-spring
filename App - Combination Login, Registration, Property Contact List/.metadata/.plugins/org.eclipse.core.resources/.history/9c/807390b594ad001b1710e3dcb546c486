@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body >
+<div th:fragment="footerCard">
+<div class="card"  style="text-align: center; position: absolute; bottom: 0; width: 100%;" >
+  <div class="card-body">
+      <p>A well-known quote, contained in a blockquote element.</p>
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>

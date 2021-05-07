@@ -1,0 +1,24 @@
+package springboot.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "propertyName"))
+public class Property {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String propertyName;
+    private String propertyName;
+    private String complexNameAndNumber;
+    private String streetNameAndNumber;
+    private String subarb;
+    
+	
+}
