@@ -1,0 +1,45 @@
+
+<!--  HEAD TAGS -->
+<div th:fragment="myHeadTags">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<link rel="stylesheet"
+		th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}">
+</div>
+
+<!-- Navigation bar -->
+<div th:fragment="navigationBar">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#" th:href="@{/}">Property File
+			Management DB</a>
+		<div class="container navbar-nav">
+			<a sec:authorize="isAuthenticated()" class="nav-item nav-link "
+				th:href="@{/logout}">Logout</a>
+		</div>
+		<div class="navbar-nav container">
+			<a sec:authorize="isAuthenticated()" class="nav-item nav-link">Welcome,
+				<span sec:authentication="principal.username">User</span>
+			</a>
+		</div>
+	</nav>
+</div>
+
+<!--  Footer  -->
+<div th:fragment="footerCard">
+	<div class="card"
+		style="text-align: center; position: absolute; bottom: 0; width: 100%;">
+		<div class="card-body">
+			<p>Footer text</p>
+		</div>
+	</div>
+</div>
+
+<!--  Scripts -->
+<div th:fragment="bottomScripts">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="tag-fragments :: myHeadTags"></div>
+<title>PFM DB - Add Property</title>
+</head>
+
+<body>
+
+<div th:replace="tag-fragments :: navigationBar"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="card mt-5 tab-card">
+					<h3 class="addedText">Add New Property</h3>
+					<div class="card-header tab-card-header">
+						<ul class="nav nav-tabs card-header-tabs" id="myTab"
+							role="tablist">
+							<li class="nav-item"><a class="nav-link" id="one-tab"
+								data-toggle="tab" href="#one" role="tab" aria-controls="One"
+								aria-selected="true">Property Information</a></li>
+							<li class="nav-item"><a class="nav-link" id="two-tab"
+								data-toggle="tab" href="#two" role="tab" aria-controls="Two"
+								aria-selected="false">Owner Information</a></li>
+							<li class="nav-item"><a class="nav-link" id="three-tab"
+								data-toggle="tab" href="#three" role="tab" aria-controls="Three"
+								aria-selected="false">Tenant Information</a></li>
+
+						</ul>
+					</div>
+					<div id="formContainer">
+						<form action="#" th:action="@{/properties/add}"
+							th:object="${property}" method="post">
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active p-3" id="one"
+									role="tabpanel" aria-labelledby="one-tab">
+									<div class="card-text">
+
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="name" class="col-form-label">Property reference name</label> <input
+													type="text" th:field="*{name}" class="form-control"
+													id="name" placeholder="Name"> <span
+													th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+													class="text-danger"></span>
+											</div>
+											<div class="form-group col-md-12">
+												<label for="streetAddress" class="col-form-label">Street
+													address</label> <input type="text" th:field="*{streetAddress}"
+													class="form-control" id="streetAddress"
+													placeholder="Street address"> <span
+													th:if="${#fields.hasErrors('streetAddress')}"
+													th:errors="*{streetAddress}" class="text-danger"></span>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label for="suburb" class="col-form-label">Suburb</label> <input
+													type="text" th:field="*{suburb}" class="form-control"
+													id="suburb" placeholder="Suburb"> <span
+													th:if="${#fields.hasErrors('suburb')}"
+													th:errors="*{suburb}" class="text-danger"></span>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label for="city" class="col-form-label">City</label> <input
+													type="text" th:field="*{city}" class="form-control"
+													id="city" placeholder="City"> <span
+													th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+													class="text-danger"></span>
+											</div>
+											<div class="form-group col-md-12">
+												<label for="type" class="col-form-label">Property type</label> <select th:field="*{type}" class="form-control"
+													id="type" placeholder="Type of Property">
+													<option value="Simplex">Simplex</option>
+													<option value="House">House</option>
+													<option value="Apartment">Apartment</option>
+													<option value="Cluster">Cluster</option>
+													<option value="Farm">Farm</option>
+													<option value="Other">Other</option>
+												</select> <span th:if="${#fields.hasErrors('type')}"
+													th:errors="*{type}" class="text-danger"></span>
+											</div>
+											<div class="form-group col-md-8">
+												<label for="grossRental" class="col-form-label">Gross
+													rental amount</label> <input type="number" min=0 max=1000000
+													th:field="*{grossRental}" class="form-control"
+													id="grossRental" placeholder="Rental before deductions">
+												<span th:if="${#fields.hasErrors('grossRental')}"
+													th:errors="*{grossRental}" class="text-danger"></span>
+											</div>
+											<div class="form-group col-md-8">
+												<label for="nettRental" class="col-form-label">Nett
+													rental amount</label> <input type="text" th:field="*{nettRental}"
+													class="form-control" id="nettRental"
+													placeholder="Rental after deductions"> <span
+													th:if="${#fields.hasErrors('nettRental')}"
+													th:errors="*{nettRental}" class="text-danger"></span>
+											</div>
+											<div class="form-group col-md-8">
+												<label for="commissionPercentage" class="col-form-label">Commission
+													percentage</label> <input type="number"
+													th:field="*{commissionPercentage}" class="form-control"
+													id="commissionPercentage"
+													placeholder="Commission %"> <span
+													th:if="${#fields.hasErrors('commissionPercentage')}"
+													th:errors="*{commissionPercentage}" class="text-danger"></span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="tab-pane fade p-3" id="two" role="tabpanel"
+									aria-labelledby="two-tab">
+									<div class="row ">
+										<div class="form-group col-md-12">
+											<label for="ownerName" class="col-form-label">Owner's full
+												name</label> <input type="text" th:field="*{ownerName}"
+												class="form-control" id="ownerName" placeholder="First and last name">
+											<span th:if="${#fields.hasErrors('ownerName')}"
+												th:errors="*{ownerName}" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-12">
+											<label for="ownerCell" class="col-form-label">Cell
+												number</label> <input type="number" max="##########"
+												th:field="*{ownerCell}" class="form-control" id="ownerCell"
+												placeholder="Cellphone number"> <span
+												th:if="${#fields.hasErrors('ownerCell')}"
+												th:errors="*{ownerCell}" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-12">
+											<label for="ownerEmail" class="col-form-label">Email
+												address</label> <input type="email" th:field="*{ownerEmail}"
+												class="form-control" id="ownerEmail"
+												placeholder="Email address"> <span
+												th:if="${#fields.hasErrors('ownerEmail')}"
+												th:errors="*{ownerEmail}" class="text-danger"></span>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="tab-pane fade p-3" id="three" role="tabpanel"
+									aria-labelledby="three-tab">
+
+									<div class="row ">
+										<div class="form-group col-md-12">
+											<label for="tenantName" class="col-form-label">Tenant's full
+												name</label> <input type="text" th:field="*{tenantName}"
+												class="form-control" id="tenantName"
+												placeholder="Tenant name"> <span
+												th:if="${#fields.hasErrors('tenantName')}"
+												th:errors="*{tenantName}" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-12">
+											<label for="tenantCell" class="col-form-label">Cell
+												number</label> <input type="number" max="##########"
+												th:field="*{tenantCell}" class="form-control"
+												id="tenantCell" placeholder="Cellphone number"> <span
+												th:if="${#fields.hasErrors('tenantCell')}"
+												th:errors="*{tenantCell}" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-12">
+											<label for="tenantEmail" class="col-form-label">Email
+												address</label> <input type="email" th:field="*{tenantEmail}"
+												class="form-control" id="tenantEmail"
+												placeholder="Email address"> <span
+												th:if="${#fields.hasErrors('tenantEmail')}"
+												th:errors="*{tenantEmail}" class="text-danger"></span>
+										</div>
+									</div>
+									
+
+								</div>
+								<div class="col-md-6">
+										<input type="submit" class="btn btn-primary"
+											value="Add Property"> <a
+											th:href="@{/properties/list}" class="btn btn-danger">Back
+										</a>
+									</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div th:replace="tag-fragments :: bottomScripts">
+
+</body>
+
+</html>
