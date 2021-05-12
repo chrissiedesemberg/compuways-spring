@@ -26,25 +26,9 @@ public class MainController {
 	}
 	
 	//homePage
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String home() {
 		return "index";
 	}
-//	
-//	@Autowired
-//	UserRepository userR;
-//	@GetMapping
-//	public String currentUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result, Model model) {
-//
-//	    Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
-//	    String email = loggedInUser.getName(); 
-//
-//	     User user = userR.findByEmail(email);
-//	    String firstname = user.getFirstName();
-//	     model.addAttribute("firstName", firstname);
-//	    model.addAttribute("emailAddress", email);
-//
-//	    return "userProfile1"; //this is the name of my template
-//	}
-	
+
 }

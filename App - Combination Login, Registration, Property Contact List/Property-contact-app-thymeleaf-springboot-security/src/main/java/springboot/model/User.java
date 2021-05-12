@@ -41,10 +41,11 @@ public class User {
 			inverseJoinColumns = @JoinColumn(
 					name = "role_id", referencedColumnName = "id")
 			)
+
 	private Collection<Role> roles;
 
 	public User() {
-		
+		System.out.println("User created model.User.User()");
 	}
 	
 	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
@@ -54,6 +55,12 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+		System.out.println("User created model.User.User( "
+				+ firstName + ", "
+				+ lastName + ", "
+				+ email + ", "
+				+ password + ", "
+				+ roles + ".)");
 	}
 
 	public Long getId() {
@@ -103,5 +110,4 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
-
 }

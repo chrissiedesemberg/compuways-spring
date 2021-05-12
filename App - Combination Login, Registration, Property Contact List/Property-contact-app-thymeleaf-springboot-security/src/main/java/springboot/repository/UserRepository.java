@@ -7,8 +7,6 @@ import springboot.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-	
-	User findByEmail(String email);
-	
 
+    User findByEmail(String username);
 }
